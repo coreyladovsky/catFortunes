@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" id="cat-foturn-html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat-fortune-button {
+            border-radius: 7px;
+            padding: 10px;
+            background: lavender;
+            color: black;
+            font-size: 16px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+         #cat-fortune-button:hover {
+             cursor: pointer;
+         }
+
+         #cat-fortune {
+             font-size: 16px;
+             font-family: sans-serif;
+         }
+
+         #cat-fortune-html {
+             max-width: fit-content;
+         }
+    </style>
+</head>
+<body>
+    <button id="cat-fortune-button">Click to reveal cat fortune</button>
+    <script>
+
+        const getRandomFortune = () => {
+            const fortunes = ['You will see a bird today.', "You will make a new friend", "Dance to some music for good luck", "Dream like today's your last"]
+            const randIdx = Math.floor(Math.random() * fortunes.length)
+            return fortunes[randIdx]
+        }
+        const button = document.querySelector('button');
+        button.addEventListener("click", () => {
+            const p = document.createElement('p')
+            p.innerText = getRandomFortune()
+            p.id = 'cat-fortune'
+            document.body.prepend(p)
+            button.remove()
+        })
+
+    </script>
+</body>
+</html>
